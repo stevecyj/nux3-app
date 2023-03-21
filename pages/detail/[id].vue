@@ -4,6 +4,6 @@
 </template>
 <style lang="scss" scoped>
 p {
-  color: $linkColor;
+  /* color: $linkColor; */
 }
 </style>

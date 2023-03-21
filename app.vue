@@ -5,6 +5,4 @@
     </NuxtLayout>
   </div>
 </template>
-<script>
-// import '~/assets/css/global.scss';
-</script>
+<script></script>
