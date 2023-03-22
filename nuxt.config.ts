@@ -10,5 +10,5 @@ export default defineNuxtConfig({
   //     },
   //   },
   // },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@huntersofbook/naive-ui-nuxt'],
 });
