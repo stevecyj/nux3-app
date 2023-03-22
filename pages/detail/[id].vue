@@ -5,5 +5,6 @@
 <style lang="scss" scoped>
 p {
   /* color: $linkColor; */
+  color: var(--link-color)
 }
 </style>
