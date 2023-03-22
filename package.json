@@ -5,7 +5,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc"
   },
   "devDependencies": {
     "@huntersofbook/naive-ui-nuxt": "^0.7.1",
