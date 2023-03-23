@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.2",
     "vant": "^4.1.1"
   }
 }
