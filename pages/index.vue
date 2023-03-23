@@ -23,11 +23,29 @@
         </NuxtLink>
         <p class="text-slate-500">发布于: {{ post.date }}</p>
       </div>
+      <!--      pagination button-->
+      <div>{{ page }}</div>
+      <van-button @click="prev">上一頁</van-button>
+      <van-button @click="next">下一頁</van-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 // const posts = await $fetch('/api/posts');
-const { data: posts, pending, error } = await useFetch('/api/posts');
+const page = ref(1);
+const {
+  data: posts,
+  pending,
+  error,
+  refresh,
+} = await useFetch(() => `/api/posts?page=${page.value}&size=1`);
+function prev() {
+  page.value--;
+  refresh();
+}
+function next() {
+  page.value++;
+  refresh();
+}
 </script>
