@@ -13,15 +13,21 @@
     <!--    <van-button type="danger">危险按钮</van-button>-->
     <!--  </div>-->
     <!--  <NuxtLink to="/detail/1">Detail page 1</NuxtLink>-->
-    <div v-for="post in posts" :key="post.id">
-      <NuxtLink class="text-lg" :to="`/detail/${post.id}`">{{
-        post.title
-      }}</NuxtLink>
-      <p class="text-slate-500">发布于: {{ post.date }}</p>
+    <!--    錯誤處理-->
+    <div v-if="error">{{ error.message }}</div>
+    <div v-if="pending">Loading...</div>
+    <div v-else>
+      <div v-for="post in posts" :key="post.id">
+        <NuxtLink class="text-lg" :to="`/detail/${post.id}`"
+          >{{ post.title }}
+        </NuxtLink>
+        <p class="text-slate-500">发布于: {{ post.date }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const posts = await $fetch('/api/posts');
+// const posts = await $fetch('/api/posts');
+const { data: posts, pending, error } = await useFetch('/api/posts');
 </script>
