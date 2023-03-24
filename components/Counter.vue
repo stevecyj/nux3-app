@@ -7,15 +7,15 @@
           counter1++;
           counter2++;
         "
-        >+</van-button
-      >
+        >+
+      </van-button>
       <van-button
         @click="
           counter1--;
           counter2--;
         "
-        >-</van-button
-      >
+        >-
+      </van-button>
     </div>
   </div>
 </template>
