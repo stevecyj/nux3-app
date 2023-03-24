@@ -14,5 +14,15 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
     '@vant/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          // 自动引入 `defineStore(), storeToRefs()`
+          'defineStore',
+          'storeToRefs',
+        ],
+      },
+    ],
   ],
 });

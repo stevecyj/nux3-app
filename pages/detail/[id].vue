@@ -22,13 +22,13 @@
 
 <script setup lang="ts">
 // 取得文章 id
-import { useLogin } from '~/composables/user';
 
 const router = useRouter();
 const route = useRoute();
 // const { title, content } = await $fetch(`/api/detail/${route.params.id}`);
 const value = useState('comment', () => '');
-const isLogin = useLogin();
+const storeUser = useUser();
+const { isLogin } = storeToRefs(storeUser);
 const onSubmit = () => {
   if (isLogin.value) {
     //   提交留言

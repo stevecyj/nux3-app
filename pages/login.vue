@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-const isLogin = useLogin();
+const storeUser = useUser();
+const { isLogin } = storeToRefs(storeUser);
 const router = useRouter();
 const route = useRoute();
 const onLogin = () => {
