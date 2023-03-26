@@ -27,11 +27,13 @@
       <div>{{ page }}</div>
       <van-button @click="prev">上一頁</van-button>
       <van-button @click="next">下一頁</van-button>
+      <van-button @click="router.push('/hello')">to hello</van-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+const router = useRouter();
 // const posts = await $fetch('/api/posts');
 const page = ref(1);
 const {
@@ -40,10 +42,12 @@ const {
   error,
   refresh,
 } = await useFetch(() => `/api/posts?page=${page.value}&size=1`);
+
 function prev() {
   page.value--;
   refresh();
 }
+
 function next() {
   page.value++;
   refresh();
