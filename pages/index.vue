@@ -28,6 +28,7 @@
       <van-button @click="prev">上一頁</van-button>
       <van-button @click="next">下一頁</van-button>
       <van-button @click="router.push('/hello')">to hello</van-button>
+      <van-button @click="router.push('/config')">to config</van-button>
     </div>
   </div>
 </template>

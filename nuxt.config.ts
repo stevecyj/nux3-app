@@ -1,15 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // css: ['assets/css/global.scss'],
-  // vite: {
-  //   css: {
-  //     preprocessorOptions: {
-  //       scss: {
-  //         additionalData: '@import "~/assets/css/_variables.scss";',
-  //       },
-  //     },
-  //   },
-  // },
+  runtimeConfig: {
+    // 只能用於服務端的 key
+    apiSecret: '',
+    public: {
+      apiBase: '',
+    },
+  },
+  ssr: true,
+  // nitro: {},
+  // builder:'webpack', // 預設vite, 需要安裝: @nuxt/webpack-builder
+  // postcss: {},
+  // vite: {},
+  // webpack: {},
   modules: [
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
