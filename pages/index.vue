@@ -34,6 +34,10 @@
 </template>
 
 <script setup lang="ts">
+// 配置標題
+useHead({
+  title: '文章列表',
+});
 const router = useRouter();
 // const posts = await $fetch('/api/posts');
 const page = ref(1);

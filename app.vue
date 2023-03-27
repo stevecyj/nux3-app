@@ -5,4 +5,11 @@
     </NuxtLayout>
   </div>
 </template>
-<script></script>
+
+<script setup lang="ts">
+useHead({
+  titleTemplate: (s) => {
+    return s ? `${s} - my space` : 'my space';
+  },
+});
+</script>

@@ -27,6 +27,10 @@ import { NuxtError } from '#app';
 
 const router = useRouter();
 const route = useRoute();
+
+useHead({
+  title: route.params.id as string,
+});
 // const { title, content } = await $fetch(`/api/detail/${route.params.id}`);
 const value = useState('comment', () => '');
 const storeUser = useUser();
