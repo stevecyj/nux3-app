@@ -16,9 +16,11 @@ export default defineNuxtConfig({
       apiBase: '',
     },
   },
-  ssr: true,
+  ssr: false,
   imports: { dirs: ['store'] },
-  // nitro: {},
+  nitro: {
+    // preset: 'vercel',
+  },
   // builder:'webpack', // 預設vite, 需要安裝: @nuxt/webpack-builder
   // postcss: {},
   // vite: {},
