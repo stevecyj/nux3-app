@@ -31,6 +31,11 @@ const route = useRoute();
 useHead({
   title: route.params.id as string,
 });
+//  定義 middleware,路由守衛
+definePageMeta({
+  middleware: 'auth',
+});
+
 // const { title, content } = await $fetch(`/api/detail/${route.params.id}`);
 const value = useState('comment', () => '');
 const storeUser = useUser();
