@@ -26,7 +26,7 @@ export default defineNuxtConfig({
   // vite: {},
   // webpack: {},
   modules: [
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss', // 單純引入，不配置
     '@huntersofbook/naive-ui-nuxt',
     '@vant/nuxt',
     [
@@ -39,5 +39,16 @@ export default defineNuxtConfig({
         ],
       },
     ],
+    // [
+    //   '@nuxtjs/color-mode',
+    //   {
+    //     preference: 'dark',
+    //   },
+    // ],
+    '@nuxtjs/color-mode', // 建議用這個方法
   ],
+  colorMode: {
+    // 獨立配置項
+    preference: 'dark',
+  },
 });
