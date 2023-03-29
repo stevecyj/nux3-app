@@ -7,7 +7,7 @@
 <script setup lang="ts">
 definePageMeta({
   // middleware(to, from) {
-  //   console.log('匿名中間件，具體頁面執行，不可複用！');
+  //   console.log('匿名中間件，當前頁面執行，不可複用！');
   // },
 
   middleware: ['amid', 'bmid'],

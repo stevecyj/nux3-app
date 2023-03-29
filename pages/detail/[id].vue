@@ -28,18 +28,30 @@ import { NuxtError } from '#app';
 const router = useRouter();
 const route = useRoute();
 
+const value = useState('comment', () => '');
+const storeUser = useUser();
+const { isLogin } = storeToRefs(storeUser);
 useHead({
   title: route.params.id as string,
 });
 //  定義 middleware,路由守衛
-definePageMeta({
-  middleware: 'auth',
-});
+// definePageMeta({
+//   middleware: 'auth',
+// });
 
+// 獲得文章 id
 // const { title, content } = await $fetch(`/api/detail/${route.params.id}`);
-const value = useState('comment', () => '');
-const storeUser = useUser();
-const { isLogin } = storeToRefs(storeUser);
+const fetchPost = () => {
+  return $fetch(`/api/detail/${route.params.id}`, {
+    // 模擬header帶token
+    headers: storeUser.isLogin ? { token: 'atoken' } : {},
+    onResponseError({ response }) {
+      if (response.status === 401) {
+        router.push('/login?callback=' + route.path);
+      }
+    },
+  });
+};
 const onSubmit = () => {
   if (isLogin.value) {
     //   提交留言
@@ -49,20 +61,17 @@ const onSubmit = () => {
     router.push('/login?callback=' + route.path);
   }
 };
-const fetchPost = () => {
-  return $fetch(`/api/detail/${route.params.id}`);
-};
 
 const { data, pending, error } = await useAsyncData(fetchPost);
 const errorMsg = computed(() => error.value as NuxtError);
 
-watchEffect(() => {
-  if (error.value) {
-    // 如果有 error 物件，展示錯誤頁
-    console.log(errorMsg);
-    showError('文件不存在');
-  }
-});
+// watchEffect(() => {
+//   if (error.value) {
+//     // 如果有 error 物件，展示錯誤頁
+//     console.log(errorMsg);
+//     showError('文件不存在');
+//   }
+// });
 </script>
 
 <style lang="scss" scoped>
